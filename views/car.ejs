@@ -1,0 +1,72 @@
+<body>
+    <form class="form-horizontal" name='createUser' action="" method="POST">
+        <fieldset>
+        
+        <!-- Form Name -->
+        <legend>Car</legend>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="model">Model</label>  
+          <div class="col-md-4">
+          <input id="model" name="model" type="text" placeholder="model" class="form-control input-md" required="">
+          <span class="help-block">Fill in with your name</span>  
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="make">make</label>  
+          <div class="col-md-4">
+          <input id="make" name="make" type="text" placeholder="make" class="form-control input-md" required="">
+          <span class="help-block">No . _ - etc</span>  
+          </div>
+        </div>
+        
+        <!-- Password input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="year">Year </label>
+          <div class="col-md-4">
+            <input id="year" name="year" type="text" placeholder="Insert your year" class="form-control input-md" required="">
+            <span class="help-block">Max 45 characters, minimum of 8</span>
+          </div>
+        </div>
+        
+        <!-- Prepended text-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="plate">Plate</label>
+          <div class="col-md-4">
+            <div class="input-group">
+              <span class="input-group-addon">@</span>
+              <input id="plate" name="plate" class="form-control" placeholder="plate" type="text" required="">
+            </div>
+            <p class="help-block">None</p>
+          </div>
+        </div>
+        
+        <!-- Multiple Radios (inline) -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="usertype">New</label>
+          <div class="col-md-4"> 
+            <label class="radio-inline" for="usertype-0">
+              <input type="radio" name="new" id="usertype-0" value="false" checked="checked">
+              False
+            </label> 
+            <label class="radio-inline" for="usertype-1">
+              <input type="radio" name="new" id="usertype-1" value="true">
+              True
+            </label> 
+          </div>
+        
+        
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="postbutton">Complete</label>
+                <div class="col-md-4">
+                <button id="postbutton" name="postbutton" class="btn btn-inverse" value="info" >Send</button>
+                </div>
+            </div>
+        </div>  
+        </fieldset>
+        </form>
+    </body>

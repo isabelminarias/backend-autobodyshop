@@ -1,0 +1,84 @@
+<body>
+<form class="form-horizontal" name='createUser' action="addUser" method="POST">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Form Name</legend>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="name">Name</label>  
+      <div class="col-md-4">
+      <input id="cname" name="cname" type="text" placeholder="Jane Doe" class="form-control input-md" required="">
+      <span class="help-block">Fill in with your name</span>  
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="username">Username</label>  
+      <div class="col-md-4">
+      <input id="username" name="username" type="text" placeholder="janedoe123" class="form-control input-md" required="">
+      <span class="help-block">No . _ - etc</span>  
+      </div>
+    </div>
+    
+    <!-- Password input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="password">Password </label>
+      <div class="col-md-4">
+        <input id="password" name="password" type="password" placeholder="Insert your password here" class="form-control input-md" required="">
+        <span class="help-block">Max 45 characters, minimum of 8</span>
+      </div>
+    </div>
+    
+    <!-- Prepended text-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="email">E-Mail</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon">@</span>
+          <input id="email" name="email" class="form-control" placeholder="example@email.com" type="text" required="">
+        </div>
+        <p class="help-block">None</p>
+      </div>
+    </div>
+    
+    <!-- Multiple Radios (inline) -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="usertype">Type of Users</label>
+      <div class="col-md-4"> 
+        <label class="radio-inline" for="usertype-0">
+          <input type="radio" name="usertype" id="usertype-0" value="0" checked="checked">
+          Not assigned
+        </label> 
+        <label class="radio-inline" for="usertype-1">
+          <input type="radio" name="usertype" id="usertype-1" value="1">
+          Clients
+        </label> 
+        <label class="radio-inline" for="usertype-2">
+          <input type="radio" name="usertype" id="usertype-2" value="2">
+          Mechanics
+        </label> 
+        <label class="radio-inline" for="usertype-3">
+          <input type="radio" name="usertype" id="usertype-3" value="3">
+          Managers
+        </label> 
+        <label class="radio-inline" for="usertype-4">
+          <input type="radio" name="usertype" id="usertype-4" value="4">
+          Admins
+        </label>
+      </div>
+    
+    
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="postbutton">Complete</label>
+            <div class="col-md-4">
+            <button id="postbutton" name="postbutton" class="btn btn-inverse" value="info" >Send</button>
+            </div>
+        </div>
+    </div>  
+    </fieldset>
+    </form>
+</body>
