@@ -1,0 +1,25 @@
+{
+  "name": "mysql_backend",
+  "version": "0.0.1",
+  "description": "MySQL connected database as the backend for BodyShop's data",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Isabel M Arias Salas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.2",
+    "nodemon": "^1.14.12",
+    "orm": "^4.0.2",
+    "sequelize": "^4.33.4",
+    "serve-favicon": "^2.4.5"
+  }
+}
