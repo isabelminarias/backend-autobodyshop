@@ -3,6 +3,7 @@ const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const indexRoutes = require('./routes/index');
 const usersRoutes = require('./routes/users');
+const carsRoutes = require('./routes/cars');
 const path = require('path');
 const db = require('./models/db'); //coneccion con mysql esta aqui
 //const cors = require('cors');
@@ -23,6 +24,7 @@ app.use(express.urlencoded({extended: false}));
 //Routes
 app.use(indexRoutes);
 app.use('/api/user/',usersRoutes);
+app.use('/api/car/', carsRoutes);
 
 
 app.get('/', (req, res) => {
