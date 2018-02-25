@@ -6,6 +6,9 @@ const Admin = sequelize.define('admin', {
     adminID: {
       type: Sequelize.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true
     },
+    userID: {
+      type: Sequelize.INTEGER, allowNull: false
+    },
     active: {
       type: Sequelize.BOOLEAN, allowNull: false, defaultValue: 1
     },

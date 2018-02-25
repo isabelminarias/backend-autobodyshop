@@ -12,6 +12,8 @@ client = require('./client');
 mechanic = require('./mechanic');
 admin = require('./admin')
 manager = require('./manager')
+appointment = require('./appointment')
+
 
 const db = {
     user: user,
@@ -19,16 +21,22 @@ const db = {
     client: client,
     mechanic: mechanic,
     manager: manager,
-    admin: admin
+    admin: admin,
+    appointment: appointment
 }
 
 //Associations
 //db.user.hasMany(db.car);
-db.car.belongsTo(db.user, {as: 'owner'});
+
 db.client.belongsTo(db.user, {as: 'userID'});
-db.mechanic.belongsTo(db.user, {as: 'userID'});
-db.admin.belongsTo(db.user, {as: 'userID'});
-db.manager.belongsTo(db.user, {as: 'userID'})
+db.mechanic.belongsTo(db.user);
+db.admin.belongsTo(db.user);
+db.manager.belongsTo(db.user)
+
+db.car.belongsTo(db.user, {as: 'owner'});
+
+db.appointment.belongsTo(db.client, {as: 'clientID'})
+db.appointment.belongsTo(db.car, {as: 'carID'})
 
 db.client.hasMany(db.car);
 

@@ -7,7 +7,10 @@ const Client = sequelize.define('client', {
       type: Sequelize.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true
     },
     bio: {
-      type: Sequelize.STRING, allowNull: false
+      type: Sequelize.STRING
+    },
+    clientUser: {
+      type: Sequelize.INTEGER, allowNull: false
     },
     createdAt: Sequelize.DATE,
     updatedAt: Sequelize.DATE,
