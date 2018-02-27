@@ -10,12 +10,11 @@ var db = require('./structure');
       type: Sequelize.INTEGER, 
       primaryKey: true, 
       autoIncrement: true
-    }, /* el owner todavia no funciona
+    }, 
     owner: {
         type: Sequelize.INTEGER, 
-        allowNull: false, 
-        defaultValue: 1
-    }, */
+        allowNull: false
+    },
     model: {
         type: Sequelize.STRING, allowNull: false
     },

@@ -33,12 +33,15 @@ db.mechanic.belongsTo(db.user);
 db.admin.belongsTo(db.user);
 db.manager.belongsTo(db.user)
 
-db.car.belongsTo(db.user, {as: 'owner'});
-
 db.appointment.belongsTo(db.client, {as: 'clientID'})
 db.appointment.belongsTo(db.car, {as: 'carID'})
 
-db.client.hasMany(db.car);
+db.client.hasMany(db.car, {
+    foreignKey: {
+        name: 'owner',
+        allowNull: false
+    }
+})
 
 
 module.exports = db;

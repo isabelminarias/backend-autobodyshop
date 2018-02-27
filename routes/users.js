@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
     res.render('user');
 })
 
-router.post('/addUser', (req, res) => {
+router.post('/user/add', (req, res) => {
     var info = req.body;
     User.create({name: info.cname, username: info.username, email: info.email, password: info.password, type: info.usertype  })
         .then(u => {
@@ -79,7 +79,7 @@ router.post('/addUser', (req, res) => {
             }
 
         })
-    res.redirect('list');
+    res.redirect('/api/user/list');
 })
 
 router.put('/:id/passwordSet', (req, res) => {
@@ -105,5 +105,9 @@ router.get('/all/:t', (req, res) => {
     .then( r => {
         res.json(r);
     })
+})
+
+router.get('/:id/info', (req, res) => {
+    
 })
 module.exports = router;

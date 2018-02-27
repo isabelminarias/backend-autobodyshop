@@ -6,8 +6,8 @@ const Appointment = sequelize.define('appointment', {
     appointmentID: {
       type: Sequelize.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true
     },
-    date: {
-      type: Sequelize.DATE, allowNull: false
+    appointedDate: {
+      type: Sequelize.DATE
     },
     tollservice: {
       type: Sequelize.BOOLEAN, allowNull: false, defaultValue: 0
@@ -17,6 +17,12 @@ const Appointment = sequelize.define('appointment', {
       },
     serviceDetail: {
       type: Sequelize.STRING
+    },
+    startDate: {
+      type: Sequelize.DATE, allowNull: false
+    },
+    endDate: {
+      type: Sequelize.DATE
     },
     createdAt: Sequelize.DATE,
     updatedAt: Sequelize.DATE,

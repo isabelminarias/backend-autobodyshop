@@ -1,5 +1,5 @@
 <body>
-    <form class="form-horizontal" name='createUser' action="" method="POST">
+    <form class="form-horizontal" name='createUser' action="add" method="POST">
         <fieldset>
         
         <!-- Form Name -->
@@ -40,23 +40,21 @@
               <span class="input-group-addon">@</span>
               <input id="plate" name="plate" class="form-control" placeholder="plate" type="text" required="">
             </div>
-            <p class="help-block">None</p>
           </div>
         </div>
 
+        <!-- Prepended text-->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="owner">Owner</label>
-          <div class="col-md-4"> 
-            <label class="radio-inline" for="owner-0">
-              <input type="radio" name="owner" id="owner-0" value="1" checked="checked">
-              Isabel
-            </label> 
-            <label class="radio-inline" for="owner-1">
-              <input type="radio" name="owner" id="owner-1" value="2">
-              Samuel
-            </label> 
+          <label class="col-md-4 control-label" for="owner">Owner ID (clientID)</label>
+          <div class="col-md-4">
+            <div class="input-group">
+              <span class="input-group-addon">!</span>
+              <input id="owner" name="owner" class="form-control" placeholder="owner" type="text" required="">
+            </div>
           </div>
         </div>
+
+        
         
         <!-- Multiple Radios (inline) -->
         <div class="form-group">
