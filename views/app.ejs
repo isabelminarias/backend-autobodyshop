@@ -1,0 +1,30 @@
+<h1>Get Apps by Date Intervals</h1>
+<form class='form-horizontal' name='getDateInterval' action='apps/date' method='POST'>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="dateStart">Date Start</label>  
+        <div class="col-md-4">
+        <input id="dateStart" name="dateStart" type="date" class="form-control input-md" required=""> 
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="dateEnd">Date End</label>  
+        <div class="col-md-4">
+        <input id="dateEnd" name="dateEnd" type="date" class="form-control input-md" required=""> 
+        </div>
+      </div>
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="postbutton">Complete</label>
+        <div class="col-md-4">
+        <button id="postbutton" name="postbutton" class="btn btn-inverse" value="info" >Send</button>
+        </div>
+    </div>
+</form>
+<table>
+    <% for(var i=0; i < cars.length; i++) { %>
+       <tr>
+         <td><%= cars[i].model %></td>
+         <td><%= cars[i].make %></td>
+       </tr>
+    <% } %>
+</table>

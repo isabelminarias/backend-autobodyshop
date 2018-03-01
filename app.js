@@ -26,6 +26,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(indexRoutes);
 app.use('/api/user/',usersRoutes);
 app.use('/api/car/', carsRoutes);
+app.use('/api/apps/', appRoutes);
 
 
 app.get('/', (req, res) => {

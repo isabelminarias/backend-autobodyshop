@@ -13,6 +13,9 @@ mechanic = require('./mechanic');
 admin = require('./admin')
 manager = require('./manager')
 appointment = require('./appointment')
+conditionDetails = require('./condition-details')
+condition = require('./condition')
+itemData = require('./item-data')
 
 
 const db = {
@@ -22,19 +25,27 @@ const db = {
     mechanic: mechanic,
     manager: manager,
     admin: admin,
-    appointment: appointment
+    appointment: appointment,
+    conditionDetails : conditionDetails,
+    condition : condition,
+    itemData : itemData
 }
 
 //Associations
 //db.user.hasMany(db.car);
 
-db.client.belongsTo(db.user, {as: 'userID'});
+//db.client.belongsTo(db.user, {as: 'userID'});
 db.mechanic.belongsTo(db.user);
 db.admin.belongsTo(db.user);
 db.manager.belongsTo(db.user)
 
-db.appointment.belongsTo(db.client, {as: 'clientID'})
-db.appointment.belongsTo(db.car, {as: 'carID'})
+db.car.hasMany(db.appointment, {
+    foreignKey: {
+        name: 'carID',
+        allowNull: false
+    }
+})
+
 
 db.client.hasMany(db.car, {
     foreignKey: {
@@ -43,5 +54,17 @@ db.client.hasMany(db.car, {
     }
 })
 
+db.condition.hasMany(db.conditionDetails, {
+    foreignKey:{
+        name: 'conditionsID',
+        allowNull: false
+    }
+})
+db.conditionDetails.hasOne(db.itemData, {
+    foreignKey: {
+        name: 'ItemDataID',
+        allowNull: false
+    }
+})
 
 module.exports = db;
