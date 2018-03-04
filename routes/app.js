@@ -112,5 +112,46 @@ router.post('/date', (req, res) => {
     res.json(dates)
 })
 
+//Cambio de estatus del app
+router.put('/id/:app', (req, res) => {
+    App.findOne({
+        where:{
+            appID: req.params.app
+        }
+    }).then(r => {
+        r.UpdateAttributes({
+            active: req.body.active
+        });
+        const mailAppID = r.appID
+        Car.findOne({
+            where:{ carID: r.carID }
+        }).then(c => {
+            Client.findOne({
+                where: { clientID: c.owner}
+            }).then(cl => {
+                User.findOne({
+                    where: {userID: cl.clientUser}
+                }).then( u => {
+                    const userEmail = u.email;
+                    
+                })
+            })
+        })
+
+        var msg = {
+            from: 'isabelarias@correo.unimet.edu.ve',
+            sender: 'Jay Auto Body Shop', 
+            text: 'Here goes a QR code and info on what you want the client to see',  
+            to: userEmail,
+            subject: (mailAppID + ' | Your Appointment has been Set!'),
+            priority: 'high'
+        }
+        if (req.body.active == true){
+            
+        }
+    })
+    res.redirect('/condition')
+})
+
 
 module.exports = router;

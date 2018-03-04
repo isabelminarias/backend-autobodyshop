@@ -3,10 +3,67 @@ const mysql = require('mysql2');
 const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 const Car = require('../models/car');
+const mailjet = require('../models/mailjet')
+
 
 //Car form to create new car instances
 router.get('/', (req, res, next) => {
     res.render('../views/car.ejs')
+})
+
+//Trial for a mail sender
+router.get('/:id/mail', (req, res)=> {
+    Car.findOne({
+        where: {
+            carID: req.params.id
+        }
+    }).then(c => {
+        const carModel = c.model;
+        const carMake = c.make;
+        const carYear = c.year;
+        Client.findOne({
+            where: {
+                clientID: c.owner
+            }
+        }).then(cl => {
+            User.findOne({
+                where:{
+                    userID: cl.clientUser
+                }
+            }).then(u =>{
+                
+                const emailAddress = u.email
+                console.log('email address '+emailAddress)
+                const emailData = {
+                    'FromEmail': 'jayparkautobodyshop@gmail.com',
+                    'FromName': `Jay's Auto Body Shop`,
+                    'Subject': 'HTML test',
+                    'Text-Part': "Hello, dear ! Your car has been appointed: We're waiting for your Make Model Year at our shop.",
+                    'Html-Part': ` <h1>Hello, dear ${u.name}!</h1><br> <h2>Your car has been appointed at the bodyshop:</h2><br> <p>We're waiting for your ${carMake} ${carModel} (${carYear}). Hope to see you soon!</p><br> <p>omg its working FINALLY! El attatchment sera nuestro QR later on.</p>` ,
+                    'Recipients': [{'Email': `${emailAddress}`}],
+                    'Attachments': [{
+                      "Content-Type": "text-plain",
+                      "Filename": "qr.txt",
+                      "Content": "VGhpcyBpcyB5b3VyIGF0dGFjaGVkIGZpbGUhISEK", // Base64 for "This is your attached file!!!" 
+                    }]
+                }
+                
+                mailjet.request(emailData)
+                    .then(response => {
+                    res.send(response)
+                })
+                    .catch(err => {
+                        res.send(err)
+                    }) 
+            } )
+        })
+    })
+    
+
+    
+
+
+    
 })
 
 //Get car listing
