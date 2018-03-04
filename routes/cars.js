@@ -30,7 +30,7 @@ router.get('/:id/mail', (req, res)=> {
                 where:{
                     userID: cl.clientUser
                 }
-            }).then(u =>{
+            }).then(u =>{ 
                 
                 const emailAddress = u.email
                 console.log('email address '+emailAddress)
