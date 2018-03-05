@@ -134,21 +134,37 @@ router.put('/id/:app', (req, res) => {
                 }).then( u => {
                     const userEmail = u.email;
                     
+                    if (req.body.active == true){
+                        const emailAddress = u.email
+                        console.log('email address '+emailAddress)
+                        const emailData = {
+                            'FromEmail': 'jayparkautobodyshop@gmail.com',
+                            'FromName': `Jay's Auto Body Shop`,
+                            'Subject': 'Your appointment has been set up!',
+                            'Text-Part': "Hello, dear ! Your car has been appointed: We're waiting for your Make Model Year at our shop.",
+                            'Html-Part': ` <h1>Hello, dear ${u.name}!</h1><br> <h2>Your car has been appointed at the bodyshop:</h2><br> <p>We're waiting for your ${carMake} ${carModel} (${carYear}). Hope to see you soon!</p><br> <p>omg its working FINALLY! El attatchment sera nuestro QR later on.</p>` ,
+                            'Recipients': [{'Email': `${emailAddress}`}],
+                            'Attachments': [{
+                                "Content-Type": "text-plain",
+                                "Filename": "qr.txt",
+                                "Content": "VGhpcyBpcyB5b3VyIGF0dGFjaGVkIGZpbGUhISEK", // Base64 for "This is your attached file!!!" 
+                            }]
+                        }
+                        
+                        mailjet.request(emailData)
+                            .then(response => {
+                            res.send(response)
+                        })
+                            .catch(err => {
+                                res.send(err)
+                            }) 
+                    }
+
                 })
             })
         })
 
-        var msg = {
-            from: 'isabelarias@correo.unimet.edu.ve',
-            sender: 'Jay Auto Body Shop', 
-            text: 'Here goes a QR code and info on what you want the client to see',  
-            to: userEmail,
-            subject: (mailAppID + ' | Your Appointment has been Set!'),
-            priority: 'high'
-        }
-        if (req.body.active == true){
-            
-        }
+        
     })
     res.redirect('/condition')
 })
