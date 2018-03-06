@@ -5,6 +5,7 @@ const indexRoutes = require('./routes/index');
 const usersRoutes = require('./routes/users');
 const carsRoutes = require('./routes/cars');
 const appRoutes = require('./routes/app');
+const loginRoutes = require('./routes/login')
 const path = require('path');
 const db = require('./models/db'); //coneccion con mysql esta aqui
 //const cors = require('cors');
@@ -27,6 +28,7 @@ app.use(indexRoutes);
 app.use('/api/user/',usersRoutes);
 app.use('/api/car/', carsRoutes);
 app.use('/api/apps/', appRoutes);
+app.use('/api/login/', loginRoutes)
 
 
 app.get('/', (req, res) => {

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Welcome to the login page</h2>
+    <div class="container">
+        <h4>User verification</h4>
+        <form class='form-horizontal' name="userform" action='login/verify' method="POST">
+            <div class="row">
+                <p> Your username</p>
+                <input id="username" name="username" type="text" class="form-control input-md" required="true">
+            </div>
+            <div class="row">
+                <p>Your password</p> 
+                <input id="password" name="password" type="password" class="form-control input-md" required="true">
+            </div>
+            <div class="row">
+                <p>Submit</p>
+                <button id="postbutton" name="postbutton" class="btn btn-inverse" value="info" >Send</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

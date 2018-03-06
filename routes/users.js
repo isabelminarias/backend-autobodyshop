@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
     User.findOne({
          where: {userID: id}, 
         }).then(results => {
-            res.json(results);
+            res.status(200).json(results);
         })
 })
 
