@@ -97,7 +97,7 @@ router.put('/:id/passwordSet', (req, res) => {
 //Query de todos los usuarios segun el tipo de usuario, y el total de usuarios de ese tipo
 router.get('/all/:t', (req, res) => {
     var usertype = req.params.t;
-    User.findAndCount({
+    User.findAll({
         where: {
             type: usertype
         }
