@@ -106,7 +106,16 @@ router.get('/all/:t', (req, res) => {
         res.json(r);
     })
 })
-
+router.get('/all/c/:t', (req, res)=> {
+    var usertype = req.params.t
+    User.findAndCountAll({
+        where:{
+            type: usertype
+        }
+    }). then(result => {
+        res.json(result.count)
+    })
+})
 router.get('/:id/info', (req, res) => {
     
 })

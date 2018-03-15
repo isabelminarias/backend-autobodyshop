@@ -3,6 +3,8 @@ const mysql = require('mysql2');
 const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 
+
+
 //Modelos
 User = require('../models/user')
 Client = require('../models/client')
@@ -29,7 +31,8 @@ router.post('/verify', (req, res) => {
             res.json({'message': 'no user defined'}).status(404)
         }
         else{ 
-            res.json(u)
+            let payload = {id: u.userID};
+
         }
     })
 })
