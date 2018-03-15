@@ -13,7 +13,7 @@ const Appointment = sequelize.define('appointment', {
       type: Sequelize.BOOLEAN, allowNull: false, defaultValue: 0
     },
     active: {
-      type: Sequelize.BOOLEAN, allowNull: false, defaultValue: 1
+      type: Sequelize.BOOLEAN, allowNull: false, defaultValue: 0
     },
     finalized: {
       type: Sequelize.BOOLEAN, allowNull: false, defaultValue: 0

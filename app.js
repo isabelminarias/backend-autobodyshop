@@ -25,6 +25,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+
 //Routes
 app.use(indexRoutes);
 app.use('/api/user/',usersRoutes);
@@ -36,6 +37,8 @@ app.use('/api/login/', loginRoutes)
 app.get('/', (req, res) => {
     res.render({message: 'main page'});
 })
+
+
 
 
 app.listen('3000', () => {
