@@ -100,6 +100,37 @@ router.get('/:id', (req, res) => {
         res.json(r);
     })
 })
+//Detail by carID
+router.get('/details/:id', (req, res)=> {
+    var car = req.params.id;
+    Car.findOne({
+        where:{
+            carID: car
+        }
+    })
+    .then(c => {
+        User.findOne({
+            where: { userID: c.owner }
+        }).then(
+            u=> {
+                res.json({
+                    'carID': c.carID,
+                    'model': c.model,
+                    'make': c.make,
+                    'year': c.year, 
+                    'owner': u.name, 
+                    'ownermail': u.email, 
+                    'owneruser': u.username,
+                    'ownerdate': u.createdAt,
+                    'new': c.new, 
+                    'image': c.image,
+                    'createdAt': c.createdAt,
+                    'updatedAt': c.updatedAt
+                })
+            }
+        )
+    })
+})
 
 // Update Car (id) sans Image
 router.put('/:id', (req, res) => {
@@ -118,6 +149,25 @@ router.put('/:id', (req, res) => {
             plate: req.body.plate
         })
     })
+})
+
+//Find User by CarID:
+router.get('/client/:id', (req, res) =>{
+    Car.findOne({
+        where:{
+            carID: req.params.id
+        }
+    }).then(
+        car => { 
+            User.findOne({
+                where:{ userID: car.owner}
+            }).then(
+                user => {
+                    res.json(user)
+                }
+            )
+        }
+    )
 })
 
 //Find by make/manufacturer (m)
